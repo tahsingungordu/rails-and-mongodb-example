@@ -1,2 +1,4 @@
 # rails-and-mongodb-example
-CRUD example with rails and mongodb
+Basic CRUD example with rails and mongodb
+
+URL : http://localhost:3000/users
