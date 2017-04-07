@@ -8,6 +8,6 @@ class User
   has_many :posts
 
   def name_with_initial
-    "#{first_name}. #{last_name}"
+    "#{first_name} #{last_name}"
   end
 end
