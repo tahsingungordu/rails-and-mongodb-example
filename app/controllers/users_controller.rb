@@ -13,13 +13,22 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to users_path, notice: "The user has been created!" and return
     end
+
     render 'new'
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update
+    @user = User.find(params[:id])
+
+    if @user.update_attributes(user_params)
+      redirect_to users_path, notice: "#{@user.first_name} #{@user.last_name} has been updated!" and return
+    end
+
+    render 'edit'
   end
 
   def destroy
