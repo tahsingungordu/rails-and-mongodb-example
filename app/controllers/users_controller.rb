@@ -23,6 +23,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+
+    redirect_to users_path, notice: "#{@user.first_name} #{@user.last_name} has been deleted!" and return
   end
 
   private
