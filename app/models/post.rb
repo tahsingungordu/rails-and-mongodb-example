@@ -5,4 +5,6 @@ class Post
   field :content_text, type: String
 
   belongs_to :user
+
+  validates :user_id, :title, :content_text, presence: true
 end
