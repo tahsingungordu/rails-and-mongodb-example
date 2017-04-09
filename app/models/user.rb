@@ -7,6 +7,9 @@ class User
 
   has_many :posts
 
+  validates :first_name, :last_name, :email, presence: true
+  validates :email, uniqueness: true
+
   def name_with_initial
     "#{first_name} #{last_name}"
   end
