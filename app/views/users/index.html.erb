@@ -1,7 +1,5 @@
 <h1>Users</h1>
-<div class="well">
-  <%= link_to "New User", new_user_path, class: "btn btn-primary" %>
-</div>
+<%= render "partials/menu" %>
 
 <% if flash[:notice] %>
     <div class="alert alert-success"><%= flash[:notice] %></div>
@@ -13,6 +11,7 @@
     <th>First Name</th>
     <th>Last Name</th>
     <th>Email</th>
+    <th>Posts</th>
     <th>Notes</th>
     <th>&nbsp;</th>
     <th>&nbsp;</th>
@@ -29,7 +28,12 @@
             <td><%= user.first_name %></td>
             <td><%= user.last_name %></td>
             <td><%= user.email %></td>
-            <td><%= user.notes %></td>
+            <td><%= user.posts.count %></td>
+            <td>
+              <button type="button" class="btn btn-primary btn-my-modal" data-body="<%= user.notes %>">
+                Read
+              </button>
+            </td>
             <td>
               <%= link_to "Edit", edit_user_path(user), class: "btn btn-default" %>
             </td>
@@ -41,3 +45,5 @@
   <% end %>
   </tbody>
 </table>
+
+<%= render "partials/modal" %>
