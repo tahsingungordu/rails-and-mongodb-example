@@ -14,3 +14,15 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+jQuery(document).ready(function($) {
+
+    $('.btn-my-modal').on('click', function () {
+        var data_body = $(this).attr('data-body');
+        var my_modal = $('#myModal');
+
+        my_modal.find('.modal-body').html(data_body);
+        my_modal.modal('show');
+    });
+
+});
